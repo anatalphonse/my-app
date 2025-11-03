@@ -1,0 +1,142 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: saturate(180%) blur(6px);
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
+.brand {
+  color: #0f172a; /* slate-900 */
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 1.125rem; /* 18px */
+}
+
+.menuToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #0f172a;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.bar + .bar {
+  margin-top: 5px;
+}
+
+/* Hamburger -> X animation */
+.menuToggleOpen .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.menuToggleOpen .bar:nth-child(2) {
+  opacity: 0;
+}
+.menuToggleOpen .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Nav (mobile-first: hidden by default) */
+.nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 56px; /* match container min-height */
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px 16px 16px;
+  display: grid;
+  gap: 6px;
+}
+
+.navItem { }
+
+.navLink {
+  display: block;
+  padding: 10px 8px;
+  color: #0f172a;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.navLink:hover,
+.navLink:focus {
+  background: rgba(2, 132, 199, 0.08); /* accent tint */
+  outline: none;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .menuToggle {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    border-bottom: none;
+  }
+
+  .navList {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .navLink {
+    padding: 8px 10px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bar,
+  .nav {
+    transition: none;
+  }
+}
+
+

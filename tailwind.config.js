@@ -1,0 +1,21 @@
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          DEFAULT: '#1f8b4c',
+          dark: '#166a3a',
+        },
+      },
+      boxShadow: {
+        soft: '0 8px 24px rgba(0,0,0,0.06)'
+      },
+    },
+  },
+  plugins: [],
+}
+
