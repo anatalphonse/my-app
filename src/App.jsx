@@ -1,34 +1,53 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { HiMenu, HiX } from 'react-icons/hi'
 import './App.css'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
+
+  // Close menu when resizing to desktop
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 769 && open) {
+        setOpen(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [open])
+  
   return (
-    <header className="navbar-modern">
-      <nav className="navbar-container">
-        <a className="navbar-brand" href="#home">Anat Alphonse T</a>
-        <button
-          aria-label="Menu"
-          onClick={() => setOpen(!open)}
-          className={`navbar-toggle ${open ? 'open' : ''}`}
-          aria-expanded={open}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div className={`navbar-menu ${open ? 'open' : ''}`}>
-          <a href="#home" onClick={() => setOpen(false)}>Home</a>
-          <a href="#skills" onClick={() => setOpen(false)}>Skills</a>
-          <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
-          <a href="#experience" onClick={() => setOpen(false)}>Experience</a>
-          <a href="#about" onClick={() => setOpen(false)}>About</a>
-          <a href="#education" onClick={() => setOpen(false)}>Education</a>
-          <a className="navbar-btn-secondary" href="/Anat_Alphonset.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Resume</a>
-          <a className="navbar-btn-secondary" href="#contact" onClick={() => setOpen(false)}>Contact</a>
-        </div>
-      </nav>
-    </header>
+    <>
+      {open && (
+        <div 
+          className="navbar-backdrop"
+          onClick={() => setOpen(false)}
+        />
+      )}
+      <header className={`navbar-modern ${open ? 'menu-open' : ''}`}>
+        <nav className="navbar-container">
+          <a className="navbar-brand" href="#home" onClick={() => setOpen(false)}>Anat Alphonse T</a>
+          <button
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen(!open)}
+            className={`navbar-toggle ${open ? 'open' : ''}`}
+            aria-expanded={open}
+          >
+            {open ? <HiX /> : <HiMenu />}
+          </button>
+          <div className={`navbar-menu ${open ? 'open' : ''}`}>
+            <a href="#home" onClick={() => setOpen(false)}>Home</a>
+            <a href="#skills" onClick={() => setOpen(false)}>Skills</a>
+            <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
+            <a href="#experience" onClick={() => setOpen(false)}>Experience</a>
+            <a href="#about" onClick={() => setOpen(false)}>About</a>
+            <a href="#education" onClick={() => setOpen(false)}>Education</a>
+            <a className="navbar-btn-secondary" href="/Anat_Alphonset.pdf" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Resume</a>
+            <a className="navbar-btn-secondary" href="#contact" onClick={() => setOpen(false)}>Contact</a>
+          </div>
+        </nav>
+      </header>
+    </>
   )
 }
 
