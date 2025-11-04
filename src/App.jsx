@@ -63,7 +63,7 @@ function Home() {
       <div className="hero-background"></div>
       <div className="hero-content">
         <div className="hero-avatar">
-          <img src="/profile.jpg" alt="Anat Alphonset profile" />
+          <img src="/profile.png" alt="Anat Alphonset profile" />
         </div>
         <div className="hero-badges">
           <a className="hero-badge-link" href="https://www.linkedin.com/in/anatalphonset" target="_blank" rel="noopener noreferrer">LinkedIn</a>
