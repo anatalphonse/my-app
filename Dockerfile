@@ -8,6 +8,9 @@ RUN npm run build
 
 # Use Nginx to serve the build
 FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
+# Check your local project: if 'npm run build' creates a 'dist' folder, use /app/dist
+# If it creates a 'build' folder, use /app/build
+COPY --from=build /app/dist /usr/share/nginx/html
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
