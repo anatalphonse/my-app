@@ -15,11 +15,11 @@ function Navbar() {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [open])
-  
+
   return (
     <>
       {open && (
-        <div 
+        <div
           className="navbar-backdrop"
           onClick={() => setOpen(false)}
         />
@@ -71,7 +71,7 @@ function Home() {
         </div>
         <h1 className="hero-title">ANAT ALPHONSE T</h1>
         <p className="hero-subtitle">Python Full‑Stack Developer · Palakkad, Kerala · <a href="tel:+919074391595">+91 9074391595</a> · <a href="mailto:anatalphonset@gmail.com">anatalphonset@gmail.com</a></p>
-        <p className="hero-description">Backend‑focused full‑stack developer building asynchronous, scalable REST APIs with FastAPI & SQLAlchemy; secure authentication with JWT & RBAC; PostgreSQL schema design with Alembic; Dockerized CI/CD with GitHub Actions; and clean, maintainable UIs.</p>
+        <p className="hero-description">Python full‑stack developer building asynchronous  scalable frontend using ReactJS, TailwindCSS & REST APIs with FastAPI & SQLAlchemy. secure authentication with JWT & RBAC. PostgreSQL schema design with Alembic. Dockerized CI/CD with GitHub Actions; and clean, maintainable UIs.</p>
         <div className="hero-actions">
           <a className="button" href="/Anat_Alphonset.pdf" target="_blank" rel="noopener noreferrer">Get Resume</a>
           <a className="button ghost" href="#projects">View Projects</a>
@@ -91,36 +91,14 @@ function About() {
     <section id="about" className="section">
       <h2>About</h2>
       <p>
-        Backend-focused full-stack developer with hands-on experience building asynchronous, scalable
+        Python full-stack developer with hands-on experience building asynchronous scalable frontend using ReactJS, TailwindCSS &
         REST APIs using FastAPI and SQLAlchemy. Skilled in designing secure authentication (JWT, RBAC),
         database schema design and migrations (PostgreSQL, Alembic), containerization (Docker) and CI/CD
         (GitHub Actions). Comfortable implementing user-facing interfaces with HTML/CSS/JavaScript and
         delivering maintainable, testable systems that solve real business problems.
       </p>
-      <h3>Core Skills</h3>
-      <p>
-        FastAPI, REST API, SQLAlchemy, PostgreSQL, Alembic, JWT, Role-Based Access Control (RBAC),
-        Asynchronous Programming (async/await), Docker, Git, GitHub Actions, CI/CD, Postman, HTML, CSS,
-        JavaScript, Bootstrap, ORM, CRUD, Testing (unit/integration), Performance tuning, Schema design
-      </p>
-      <h3>Technical Skills</h3>
-      <ul className="list">
-        <li><strong>Languages</strong>: Python, JavaScript, HTML, CSS</li>
-        <li><strong>Frameworks / Libraries</strong>: FastAPI, SQLAlchemy, Bootstrap, jQuery, Django</li>
-        <li><strong>Databases</strong>: PostgreSQL</li>
-        <li><strong>DevOps / Tools</strong>: Docker, Git, GitHub, GitHub Actions, Postman, Alembic</li>
-        <li><strong>Design / Prototyping</strong>: Figma, Canva</li>
-      </ul>
-      <h3>Education</h3>
-      <ul className="list">
-        <li>
-          Bachelor of Science (B.Sc.) — Computer Science<br />
-          Model College of Applied Science Kuzhalmannam (University of Calicut) · Oct 2021 – May 2024
-        </li>
-        <li>
-          Certificates & Courses: Python Full Stack — Softroniics · Sep 2024 – Mar 2025
-        </li>
-      </ul>
+
+
     </section>
   )
 }
@@ -131,14 +109,14 @@ function Skills() {
       <h2>Skills</h2>
       <h3>Core Skills</h3>
       <div className="chip-grid">
-        {['FastAPI', 'REST API', 'SQLAlchemy', 'PostgreSQL', 'Alembic', 'JWT', 'RBAC', 'Async/Await', 'Docker', 'Git', 'GitHub Actions', 'CI/CD', 'Postman', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'ORM', 'CRUD', 'Testing', 'Performance tuning', 'Schema design'].map((s) => (
+        {['FastAPI', 'ReactJS', 'TailwindCSS', 'REST API', 'SQLAlchemy', 'PostgreSQL', 'Alembic', 'JWT', 'RBAC', 'Async/Await', 'Docker', 'Git', 'GitHub Actions', 'CI/CD', 'Postman', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'ORM', 'CRUD', 'Testing', 'Performance tuning', 'Schema design'].map((s) => (
           <span key={s} className="chip">{s}</span>
         ))}
       </div>
       <h3>Technical Skills</h3>
       <ul className="list">
         <li><strong>Languages</strong>: Python, JavaScript, HTML, CSS</li>
-        <li><strong>Frameworks / Libraries</strong>: FastAPI, SQLAlchemy, Bootstrap, jQuery, Django</li>
+        <li><strong>Frameworks / Libraries</strong>: FastAPI, Reactjs, TailwindCSS, SQLAlchemy, Bootstrap, jQuery, Django</li>
         <li><strong>Databases</strong>: PostgreSQL</li>
         <li><strong>DevOps / Tools</strong>: Docker, Git, GitHub, GitHub Actions, Postman, Alembic</li>
         <li><strong>Design / Prototyping</strong>: Figma, Canva</li>
@@ -151,13 +129,24 @@ function Experience() {
   return (
     <section id="experience" className="section">
       <h2>Experience</h2>
-      <h3>Ekaksha Technologies — Python Developer Intern</h3>
+      <h3>Ekaksha Technologies — Web Developer</h3>
       <p>Apr 2025 – Present</p>
       <ul className="list">
-        <li>Built and maintained asynchronous REST APIs with FastAPI and SQLAlchemy for high concurrency.</li>
+        <li>Built and maintained asynchronous  scalable frontend using ReactJS, TailwindCSS & REST APIs with FastAPI and SQLAlchemy for high concurrency.</li>
         <li>Implemented JWT-based authentication and RBAC to secure endpoints and enforce permissions.</li>
         <li>Integrated PostgreSQL via SQLAlchemy ORM and managed schema changes with Alembic migrations.</li>
         <li>Created and executed Postman collections for API validation; collaborated on responsive UI with HTML, CSS, Bootstrap.</li>
+      </ul>
+
+      <h3>Softroniics — Python Developer Intern</h3>
+      <p>Sept 2024 – Mar 2025</p>
+      <ul className="list">
+        <li>Assisted in developing web applications using Python, Django, HTML, CSS, JavaScript, and
+          Bootstrap</li>
+        <li>Worked on backend development with Django, handling database management using
+          PostgreSQL</li>
+        <li>Developed responsive front-end interfaces using modern CSS frameworks Bootstrap &
+          Tailwind</li>
       </ul>
     </section>
   )
@@ -226,9 +215,6 @@ export default function App() {
             <li>
               <strong>Bachelor of Science (B.Sc.) — Computer Science</strong><br />
               Model College of Applied Science Kuzhalmannam (University of Calicut) · Oct 2021 – May 2024
-            </li>
-            <li>
-              <strong>Certificate</strong>: Python Full Stack — Softroniics · Sep 2024 – Mar 2025
             </li>
           </ul>
         </section>
